@@ -1,6 +1,5 @@
 //
 //  UIViewController+Swizzling.m
-//  Testing
 //
 //  Created by Rui Peres on 12/08/2013.
 //  Copyright (c) 2013 Rui Peres. All rights reserved.
@@ -82,9 +81,9 @@ static void swizzInstance(Class class, SEL originalSel, SEL newSel)
         return;
     }
     
-    isSwizzed = YES;
-    // First we take care about the initWithRequest:delegate:startImmediately: (notice that it's a instance method)
     swizzInstance([self class],@selector(viewDidAppear:),@selector(swizzviewDidAppear:));
+    
+    isSwizzed = YES;
 }
 
 + (void)undoSwizz
@@ -96,7 +95,6 @@ static void swizzInstance(Class class, SEL originalSel, SEL newSel)
     }
     
     isSwizzed = NO;
-    // First we take care about the initWithRequest:delegate:startImmediately: (notice that it's a instance method)
     swizzInstance([self class],@selector(swizzViewDidLoad),@selector(viewDidLoad));
 }
 

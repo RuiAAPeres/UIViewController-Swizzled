@@ -1,6 +1,5 @@
 //
 //  UIViewController+Swizzling.h
-//  Testing
 //
 //  Created by Rui Peres on 12/08/2013.
 //  Copyright (c) 2013 Rui Peres. All rights reserved.
@@ -8,7 +7,10 @@
 
 #import <UIKit/UIKit.h>
 
-
+/**
+ Used to map your way inside your application, by logging the name
+ of your UIViewController + a representation of how deep you are
+ */
 @interface UIViewController (Swizzling)
 
 /**
