@@ -1,14 +1,14 @@
 //
-//  UIViewController+Swizzling.m
+//  UIViewController+Swizzled.m
 //
 //  Created by Rui Peres on 12/08/2013.
 //  Copyright (c) 2013 Rui Peres. All rights reserved.
 //
 
-#import "UIViewController+Swizzling.h"
+#import "UIViewController+Swizzled.h"
 #import <objc/runtime.h>
 
-@implementation UIViewController (Swizzling)
+@implementation UIViewController (Swizzled)
 
 
 // Poor's man flag. Used to know if the methods are already Swizzed
