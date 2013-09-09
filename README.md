@@ -1,4 +1,4 @@
-NSURLConnection+Swizzled
+UIViewController+Swizzled
 =============
 -------------
 
