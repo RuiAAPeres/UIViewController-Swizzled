@@ -3,6 +3,7 @@ UIViewController+Swizzled
 -------------
 
 Category used to map your way inside an application. This is specially useful when you are working with a complex path and you are new to the project. Using this category will see the name of the UIViewController you are in, plus a representation of how deep you are.
+
 This is a companion of the my previous other category [NSURLConnection+Swizzled.h](https://github.com/RuiAAPeres/RPNSURLConnection-Swizzled)
 
 **Don't forget to disable it in production code. This is only for debugging**
@@ -49,7 +50,7 @@ In order to get the full output you should `SWIZZ_IT` right in the AppDelegate `
 
 This will output:
 
-``
+```
 2013-09-09 18:58:42.360 Testing[25399:c07] -> UINavigationController
 2013-09-09 18:58:42.361 Testing[25399:c07] ---> RPViewController
 2013-09-09 18:59:55.072 Testing[25399:c07] -----> RPSecondViewController
