@@ -34,7 +34,7 @@ Adding UIViewController+Swizzled to your project
 Usage
 =====
 
-In order to get the full output you should `SWIZZ_IT` right in the AppDelegate `- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions`. If for some reason you want to stop, just `UN_WIZZ_IT`.
+In order to get the full output you should `SWIZZ_IT` right in the AppDelegate `- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions`. If for some reason you want to stop, just `UN_SWIZZ_IT`.
 ```objective-c
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
