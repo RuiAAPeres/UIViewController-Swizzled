@@ -95,7 +95,7 @@ static void swizzInstance(Class class, SEL originalSel, SEL newSel)
     }
     
     isSwizzed = NO;
-    swizzInstance([self class],@selector(swizzViewDidLoad),@selector(viewDidLoad));
+    swizzInstance([self class],@selector(swizzviewDidAppear:),@selector(viewDidAppear:));
 }
 
 @end
