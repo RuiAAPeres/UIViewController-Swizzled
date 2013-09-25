@@ -59,6 +59,11 @@ static void swizzInstance(Class class, SEL originalSel, SEL newSel)
         
         NSLog(@"%@-> %@", level,[self.class description]);
     }
+    
+    if ([[self parentViewController] isMemberOfClass:[UITabBarController class]])
+    {
+        NSLog(@"---> %@",[self.class description]);
+    }
 }
 
 -(void)swizzviewDidAppear:(BOOL)animated
