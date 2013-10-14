@@ -75,3 +75,7 @@ License
 =======
 
 This code is distributed under the terms and conditions of the MIT license. 
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/RuiAAPeres/uiviewcontroller-swizzled/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
