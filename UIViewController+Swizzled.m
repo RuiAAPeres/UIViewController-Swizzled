@@ -21,14 +21,6 @@ static BOOL isSwizzed;
 
 #pragma mark - Util methods
 
-static void swizzClass(Class class, SEL originalSel, SEL newSel)
-{
-    Method origMethod = class_getClassMethod(class, originalSel);
-    Method newMethod = class_getClassMethod(class, newSel);
-    
-    method_exchangeImplementations(origMethod, newMethod);
-}
-
 static void swizzInstance(Class class, SEL originalSel, SEL newSel)
 {
     Method origMethod = class_getInstanceMethod(class, originalSel);
