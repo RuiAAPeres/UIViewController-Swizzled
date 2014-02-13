@@ -8,11 +8,14 @@
 #import "UIViewController+Swizzled.h"
 #import <objc/runtime.h>
 
-@implementation UIViewController (Swizzled)
 
+
+@implementation UIViewController (Swizzled)
 
 // Poor's man flag. Used to know if the methods are already Swizzed
 static BOOL isSwizzed;
+
+static NSString *logTag = @"";
 
 +(void)load
 {
@@ -20,6 +23,14 @@ static BOOL isSwizzed;
 }
 
 #pragma mark - Util methods
+
+static void swizzClass(Class class, SEL originalSel, SEL newSel)
+{
+    Method origMethod = class_getClassMethod(class, originalSel);
+    Method newMethod = class_getClassMethod(class, newSel);
+    
+    method_exchangeImplementations(origMethod, newMethod);
+}
 
 static void swizzInstance(Class class, SEL originalSel, SEL newSel)
 {
@@ -29,32 +40,33 @@ static void swizzInstance(Class class, SEL originalSel, SEL newSel)
     method_exchangeImplementations(origMethod, newMethod);
 }
 
+- (void)logWithLevel:(NSUInteger)level
+{
+    NSString *paddingItems = @"";
+    for (int i = 0; i<=level; i++)
+    {
+        paddingItems = [paddingItems stringByAppendingFormat:@"--"];
+    }
+    
+    NSLog(@"%@%@-> %@", logTag, paddingItems, [self.class description]);
+}
+
+
 #pragma mark - SwizzMethods
 
 - (void)printPath
 {
     if ([self parentViewController] == nil)
     {
-        NSLog(@"-> %@",[self.class description]);
-    }
-    
-    if([[self parentViewController] isMemberOfClass:[UINavigationController class]])
+        [self logWithLevel:0];
+    } else if([[self parentViewController] isMemberOfClass:[UINavigationController class]])
     {
         UINavigationController *nav = (UINavigationController *)[self parentViewController];
         NSInteger integer = [[nav viewControllers] indexOfObject:self];
-        
-        NSString *level = @"";
-        for (int i = 0; i<=integer; i++)
-        {
-            level = [level stringByAppendingFormat:@"--"];
-        }
-        
-        NSLog(@"%@-> %@", level,[self.class description]);
-    }
-    
-    if ([[self parentViewController] isMemberOfClass:[UITabBarController class]])
+        [self logWithLevel:integer];
+    } else if ([[self parentViewController] isMemberOfClass:[UITabBarController class]])
     {
-        NSLog(@"---> %@",[self.class description]);
+        [self logWithLevel:1];
     }
 }
 
@@ -81,6 +93,12 @@ static void swizzInstance(Class class, SEL originalSel, SEL newSel)
     swizzInstance([self class],@selector(viewDidAppear:),@selector(swizzviewDidAppear:));
     
     isSwizzed = YES;
+}
+
++ (void)swizzItWithTag:(NSString *)tag
+{
+    logTag = tag;
+    [self swizzIt];
 }
 
 + (void)undoSwizz
