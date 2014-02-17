@@ -35,7 +35,7 @@ static void swizzInstance(Class class, SEL originalSel, SEL newSel)
 - (void)logWithLevel:(NSUInteger)level
 {
     NSString *paddingItems = @"";
-    for (NSUInteger i = 0; i<=level; i++)
+    for (NSUInteger i = 0; i < level; i++)
     {
         paddingItems = [paddingItems stringByAppendingFormat:@"--"];
     }
@@ -55,7 +55,7 @@ static void swizzInstance(Class class, SEL originalSel, SEL newSel)
     {
         UINavigationController *nav = (UINavigationController *)[self parentViewController];
         NSInteger integer = [[nav viewControllers] indexOfObject:self];
-        [self logWithLevel:integer];
+        [self logWithLevel:integer + 1];
     } else if ([[self parentViewController] isMemberOfClass:[UITabBarController class]])
     {
         [self logWithLevel:1];
