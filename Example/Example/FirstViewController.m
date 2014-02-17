@@ -10,6 +10,8 @@
 
 @interface FirstViewController ()
 
+@property (weak, nonatomic) IBOutlet UITextField *tagTextfield;
+
 @end
 
 @implementation FirstViewController
@@ -24,6 +26,14 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Actions
+
+- (IBAction)onSetTagPressed:(id)sender {
+}
+
+- (IBAction)onResetTagPressed:(id)sender {
 }
 
 @end

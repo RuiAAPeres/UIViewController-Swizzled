@@ -24,14 +24,6 @@ static NSString *logTag = @"";
 
 #pragma mark - Util methods
 
-static void swizzClass(Class class, SEL originalSel, SEL newSel)
-{
-    Method origMethod = class_getClassMethod(class, originalSel);
-    Method newMethod = class_getClassMethod(class, newSel);
-    
-    method_exchangeImplementations(origMethod, newMethod);
-}
-
 static void swizzInstance(Class class, SEL originalSel, SEL newSel)
 {
     Method origMethod = class_getInstanceMethod(class, originalSel);
@@ -43,7 +35,7 @@ static void swizzInstance(Class class, SEL originalSel, SEL newSel)
 - (void)logWithLevel:(NSUInteger)level
 {
     NSString *paddingItems = @"";
-    for (int i = 0; i<=level; i++)
+    for (NSUInteger i = 0; i<=level; i++)
     {
         paddingItems = [paddingItems stringByAppendingFormat:@"--"];
     }
