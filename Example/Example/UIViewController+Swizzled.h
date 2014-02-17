@@ -7,7 +7,7 @@
 
 #import <UIKit/UIKit.h>
 
-#define SWIZZ_IT [UIViewController swizzIt];
+#define SWIZZ_IT [UIViewController swizzItWithTag:@""];
 #define SWIZZ_IT_WITH_TAG(tag) [UIViewController swizzItWithTag:tag];
 
 #define UN_SWIZZ_IT [UIViewController undoSwizz];

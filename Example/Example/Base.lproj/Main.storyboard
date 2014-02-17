@@ -52,7 +52,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="onResetTagPressed:" destination="CZ4-MO-1fc" eventType="touchDragInside" id="ldF-MT-BaI"/>
+                                    <action selector="onResetTagPressed:" destination="CZ4-MO-1fc" eventType="touchUpInside" id="aIl-X4-ElJ"/>
                                 </connections>
                             </button>
                         </subviews>

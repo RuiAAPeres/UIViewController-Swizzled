@@ -31,9 +31,17 @@
 #pragma mark - Actions
 
 - (IBAction)onSetTagPressed:(id)sender {
+    NSString *tag = self.tagTextfield.text;
+    [self.tagTextfield resignFirstResponder];
+    
+    UN_SWIZZ_IT
+    SWIZZ_IT_WITH_TAG(tag)
 }
 
 - (IBAction)onResetTagPressed:(id)sender {
+    UN_SWIZZ_IT
+    SWIZZ_IT
+    self.tagTextfield.text = @"";
 }
 
 @end
