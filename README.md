@@ -28,7 +28,7 @@ Adding UIViewController+Swizzled to your project
 
 **Or**
 
-*	Cocoapods: pod 'UIViewController-Swizzled', '~> 1.2'
+*	Cocoapods: pod 'UIViewController+Swizzled', '~> 1.2'
 
 -----
 Usage
