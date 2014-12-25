@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C7170D4C1A4C806F007F0BCE /* UIViewController+Swizzled.m in Sources */ = {isa = PBXBuildFile; fileRef = C7170D4B1A4C806F007F0BCE /* UIViewController+Swizzled.m */; };
 		EE7FFA1A18AE65E7004997F6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE7FFA1918AE65E7004997F6 /* Foundation.framework */; };
 		EE7FFA1C18AE65E7004997F6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE7FFA1B18AE65E7004997F6 /* CoreGraphics.framework */; };
 		EE7FFA1E18AE65E7004997F6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE7FFA1D18AE65E7004997F6 /* UIKit.framework */; };
@@ -22,7 +23,6 @@
 		EE7FFA3E18AE65E7004997F6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE7FFA1D18AE65E7004997F6 /* UIKit.framework */; };
 		EE7FFA4618AE65E7004997F6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EE7FFA4418AE65E7004997F6 /* InfoPlist.strings */; };
 		EE7FFA4818AE65E7004997F6 /* ExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7FFA4718AE65E7004997F6 /* ExampleTests.m */; };
-		EE7FFA5418AE6703004997F6 /* UIViewController+Swizzled.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7FFA5218AE6703004997F6 /* UIViewController+Swizzled.m */; };
 		EEF6492818B24BAD0009FD8F /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEF6492718B24BAD0009FD8F /* TestViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C7170D4A1A4C806F007F0BCE /* UIViewController+Swizzled.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+Swizzled.h"; path = "../../UIViewController+Swizzled.h"; sourceTree = "<group>"; };
+		C7170D4B1A4C806F007F0BCE /* UIViewController+Swizzled.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+Swizzled.m"; path = "../../UIViewController+Swizzled.m"; sourceTree = "<group>"; };
 		EE7FFA1618AE65E7004997F6 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE7FFA1918AE65E7004997F6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EE7FFA1B18AE65E7004997F6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -58,8 +60,6 @@
 		EE7FFA4318AE65E7004997F6 /* ExampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ExampleTests-Info.plist"; sourceTree = "<group>"; };
 		EE7FFA4518AE65E7004997F6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EE7FFA4718AE65E7004997F6 /* ExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExampleTests.m; sourceTree = "<group>"; };
-		EE7FFA5218AE6703004997F6 /* UIViewController+Swizzled.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Swizzled.m"; sourceTree = "<group>"; };
-		EE7FFA5318AE6703004997F6 /* UIViewController+Swizzled.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Swizzled.h"; sourceTree = "<group>"; };
 		EEF6492618B24BAD0009FD8F /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		EEF6492718B24BAD0009FD8F /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -164,8 +164,8 @@
 		EE7FFA5118AE6664004997F6 /* UIViewController-Swizzled */ = {
 			isa = PBXGroup;
 			children = (
-				EE7FFA5218AE6703004997F6 /* UIViewController+Swizzled.m */,
-				EE7FFA5318AE6703004997F6 /* UIViewController+Swizzled.h */,
+				C7170D4A1A4C806F007F0BCE /* UIViewController+Swizzled.h */,
+				C7170D4B1A4C806F007F0BCE /* UIViewController+Swizzled.m */,
 			);
 			name = "UIViewController-Swizzled";
 			sourceTree = "<group>";
@@ -279,12 +279,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7170D4C1A4C806F007F0BCE /* UIViewController+Swizzled.m in Sources */,
 				EEF6492818B24BAD0009FD8F /* TestViewController.m in Sources */,
 				EE7FFA3318AE65E7004997F6 /* SecondViewController.m in Sources */,
 				EE7FFA2A18AE65E7004997F6 /* AppDelegate.m in Sources */,
 				EE7FFA3018AE65E7004997F6 /* FirstViewController.m in Sources */,
 				EE7FFA2618AE65E7004997F6 /* main.m in Sources */,
-				EE7FFA5418AE6703004997F6 /* UIViewController+Swizzled.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

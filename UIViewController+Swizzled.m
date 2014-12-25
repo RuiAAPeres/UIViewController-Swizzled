@@ -8,8 +8,6 @@
 #import "UIViewController+Swizzled.h"
 #import <objc/runtime.h>
 
-
-
 @implementation UIViewController (Swizzled)
 
 // Poor's man flag. Used to know if the methods are already Swizzed
@@ -24,12 +22,22 @@ static NSString *logTag = @"";
 
 #pragma mark - Util methods
 
-static void swizzInstance(Class class, SEL originalSel, SEL newSel)
+static void swizzInstance(Class class, SEL originalSelector, SEL swizzledSelector)
 {
-    Method origMethod = class_getInstanceMethod(class, originalSel);
-    Method newMethod = class_getInstanceMethod(class, newSel);
+    Method originalMethod = class_getInstanceMethod(class, originalSelector);
+    Method swizzledMethod = class_getInstanceMethod(class, swizzledSelector);
     
-    method_exchangeImplementations(origMethod, newMethod);
+    BOOL didAddMethod =
+    class_addMethod(class, originalSelector, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod));
+    
+    if (didAddMethod)
+    {
+        class_replaceMethod(class, swizzledSelector, method_getImplementation(originalMethod),method_getTypeEncoding(originalMethod));
+    }
+    else
+    {
+        method_exchangeImplementations(originalMethod, swizzledMethod);
+    }
 }
 
 - (void)logWithLevel:(NSUInteger)level
@@ -51,12 +59,14 @@ static void swizzInstance(Class class, SEL originalSel, SEL newSel)
     if ([self parentViewController] == nil)
     {
         [self logWithLevel:0];
-    } else if([[self parentViewController] isMemberOfClass:[UINavigationController class]])
+    }
+    else if([[self parentViewController] isMemberOfClass:[UINavigationController class]])
     {
         UINavigationController *nav = (UINavigationController *)[self parentViewController];
         NSInteger integer = [[nav viewControllers] indexOfObject:self];
         [self logWithLevel:integer];
-    } else if ([[self parentViewController] isMemberOfClass:[UITabBarController class]])
+    }
+    else if ([[self parentViewController] isMemberOfClass:[UITabBarController class]])
     {
         [self logWithLevel:1];
     }
@@ -64,7 +74,6 @@ static void swizzInstance(Class class, SEL originalSel, SEL newSel)
 
 -(void)swizzviewDidAppear:(BOOL)animated
 {
-    
     [self printPath];
     
     // Call the original method (viewWillAppear)
@@ -72,7 +81,6 @@ static void swizzInstance(Class class, SEL originalSel, SEL newSel)
 }
 
 #pragma mark - Public methods
-
 
 + (void)swizzIt
 {
