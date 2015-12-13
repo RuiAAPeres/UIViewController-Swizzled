@@ -56,20 +56,13 @@ static void swizzInstance(Class class, SEL originalSelector, SEL swizzledSelecto
 
 - (void)printPath
 {
-    if ([self parentViewController] == nil)
-    {
-        [self logWithLevel:0];
+    NSUInteger level = 0;
+    UIViewController *parent = [self parentViewController];
+    while (parent != nil) {
+        level += 1;
+        parent = [parent parentViewController];
     }
-    else if([[self parentViewController] isMemberOfClass:[UINavigationController class]])
-    {
-        UINavigationController *nav = (UINavigationController *)[self parentViewController];
-        NSInteger integer = [[nav viewControllers] indexOfObject:self];
-        [self logWithLevel:integer];
-    }
-    else if ([[self parentViewController] isMemberOfClass:[UITabBarController class]])
-    {
-        [self logWithLevel:1];
-    }
+    [self logWithLevel:level];
 }
 
 -(void)swizzviewDidAppear:(BOOL)animated
