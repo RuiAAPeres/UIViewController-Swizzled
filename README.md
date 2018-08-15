@@ -1,5 +1,7 @@
 UIViewController+Swizzled
 =============
+⚠️ I am no longer supporting this lib. :) ⚠️ 
+=============
 -------------
 
 Category used to map your way inside an application. This is specially useful when you are working with a complex path and you are new to the project. Using this category will see the name of the UIViewController you are in, plus a representation of how deep you are.
